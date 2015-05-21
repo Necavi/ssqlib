@@ -37,6 +37,11 @@ namespace SSQLib
         private string playerCount = "";
         private string botCount = "";
         private string maxPlayers = "";
+        private string steamID = "";
+        private string tags = "";
+        private string gameID = "";
+        private string sourceTVPort = "";
+        private string sourceTVName = "";
 
         private bool passworded = false;
         private bool vac = false;
@@ -257,7 +262,7 @@ namespace SSQLib
         }
 
         /// <summary>
-        /// Stores the operating system of the server (Windows, Linux)
+        /// Stores the operating system of the server (Windows, Linux, Mac)
         /// </summary>
         public ServerInfo.OSType OS
         {
@@ -269,6 +274,86 @@ namespace SSQLib
             set
             {
                 this.os = value;
+            }
+        }
+
+        /// <summary>
+        /// Stores the SteamID of the server
+        /// </summary>
+        public string SteamID
+        {
+            get
+            {
+                return this.steamID;
+            }
+
+            set
+            {
+                this.steamID = value;
+            }
+        }
+
+        /// <summary>
+        /// Stores the tags of the server
+        /// </summary>
+        public string Tags
+        {
+            get
+            {
+                return this.tags;
+            }
+
+            set
+            {
+                this.tags = value;
+            }
+        }
+
+        /// <summary>
+        /// Stores the GaneID of the server
+        /// </summary>
+        public string GameID
+        {
+            get
+            {
+                return this.gameID;
+            }
+
+            set
+            {
+                this.gameID = value;
+            }
+        }
+
+        /// <summary>
+        /// Stores the SourceTV port of the server
+        /// </summary>
+        public string SourceTVPort
+        {
+            get
+            {
+                return this.sourceTVPort;
+            }
+
+            set
+            {
+                this.sourceTVPort = value;
+            }
+        }
+
+        /// <summary>
+        /// Stores the SourceTV Name of the server
+        /// </summary>
+        public string SourceTVName
+        {
+            get
+            {
+                return this.sourceTVName;
+            }
+
+            set
+            {
+                this.sourceTVName = value;
             }
         }
 

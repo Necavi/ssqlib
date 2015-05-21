@@ -181,11 +181,65 @@ namespace SSQLib
                 i++;
             }
 
+            //Set the version
+            info.Version = versionInfo.ToString();
+
             //Move to the next byte
             i++;
 
-            //Set the version
-            info.Version = versionInfo.ToString();
+            byte edf = buf[i];
+            i++;
+
+            if((edf & 0x80) != 0)
+            {
+                short port = (short)System.BitConverter.ToInt16(buf, i);
+                info.Port = port.ToString();
+                i += 2;
+            }
+
+            if((edf & 0x10) != 0)
+            {
+                long SteamID = (long)System.BitConverter.ToInt64(buf, i);
+                info.SteamID = SteamID.ToString();
+                i += 8;
+            }
+
+            if((edf & 0x40) != 0)
+            {
+                short port = (short)System.BitConverter.ToInt16(buf, i);
+                info.SourceTVPort = port.ToString();
+                i += 2;
+
+                StringBuilder name = new StringBuilder();
+
+                while (buf[i] != 0x00)
+                {
+                    name.Append((char)buf[i]);
+                    i++;
+                }
+
+                info.SourceTVName = name.ToString();
+                i++;
+            }
+
+            if((edf & 0x20) != 0)
+            {
+                StringBuilder tags = new StringBuilder();
+                while(buf[i] != 0x00)
+                {
+                    tags.Append((char)buf[i]);
+                    i++;
+                }
+                info.Tags = tags.ToString();
+                i++;
+            }
+
+            if((edf & 0x01) != 0)
+            {
+                long gameid = (long)System.BitConverter.ToInt64(buf, i);
+                info.GameID = gameid.ToString();
+                i += 8;
+            }
 
             return info;
         }
