@@ -160,6 +160,8 @@ namespace SSQLib
                 info.OS = ServerInfo.OSType.LINUX;
             else if ((char)buf[i] == 'w')
                 info.OS = ServerInfo.OSType.WINDOWS;
+            else if ((char)buf[i] == 'm' || (char)buf[i] == 'o')
+                info.OS = ServerInfo.OSType.MAC;
 
             //Move to the next byte
             i++;

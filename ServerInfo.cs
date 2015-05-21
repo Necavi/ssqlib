@@ -311,7 +311,11 @@ namespace SSQLib
             /// <summary>
             /// Linux server
             /// </summary>
-            LINUX
+            LINUX,
+            /// <summary>
+            /// Mac Server
+            /// </summary>
+            MAC
         };
     }
 }
